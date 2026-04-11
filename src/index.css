@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-white text-slate-900 font-sans selection:bg-brand-blue/10 selection:text-brand-blue;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.glass {
+  @apply bg-white/70 backdrop-blur-xl border border-slate-200;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-br from-brand-blue via-brand-blue to-[#0052BF];
+}
+
+.blue-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-blue via-[#0052BF] to-brand-blue;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-white;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-brand-blue/20 rounded-full hover:bg-brand-blue/40 transition-colors;
+}
