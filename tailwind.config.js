@@ -9,8 +9,10 @@ export default {
       colors: {
         brand: {
           blue: '#003882',
-          light: '#F8FAFC',
-          dark: '#0F172A',
+          navy: '#0F172A',
+          light: '#F0F7FF',
+          sky: '#E8F4FD',
+          muted: '#64748B',
         }
       },
       fontFamily: {

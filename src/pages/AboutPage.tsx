@@ -10,9 +10,9 @@ const AboutPage = () => {
           <img
             src="/about_hero.png"
             alt="About Spirare"
-            className="w-full h-full object-cover scale-105"
+            className="w-full h-full object-cover scale-105 opacity-20"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-light via-brand-light/80 to-transparent" />
         </div>
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
@@ -20,15 +20,15 @@ const AboutPage = () => {
             animate={{ opacity: 1, y: 0 }}
             className="max-w-3xl space-y-6"
           >
-            <div className="flex items-center gap-2 text-cyan-500 font-bold tracking-widest uppercase text-sm">
-              <span className="w-8 h-px bg-cyan-500" />
+            <div className="flex items-center gap-2 text-brand-blue font-bold tracking-widest uppercase text-sm">
+              <span className="w-8 h-px bg-brand-blue" />
               Company Overview
             </div>
-            <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white uppercase leading-tight">
+            <h1 className="text-5xl md:text-7xl font-black tracking-tight text-brand-navy uppercase leading-tight">
               ADVANCING <br />
-              <span className="text-cyan-500">INDUSTRIAL</span> ENergy
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-blue-400">INDUSTRIAL</span> Energy
             </h1>
-            <p className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-2xl font-medium">
+            <p className="text-brand-muted text-lg md:text-xl leading-relaxed max-w-2xl font-medium">
               A leading global provider of on-site gas generation systems, delivering
               precision engineering and high-pressure solutions for the world's most
               demanding industries.
@@ -80,13 +80,13 @@ const AboutPage = () => {
                 "Flopressure™ Closed Loop Sampling Systems for gases, liquids, flare gases, crude oil, slurries - with automation-ready options"
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3 group">
-                  <CheckCircle2 className="text-cyan-600 mt-1 shrink-0 group-hover:scale-110 transition-transform" size={20} />
+                  <CheckCircle2 className="text-brand-blue mt-1 shrink-0 group-hover:scale-110 transition-transform" size={20} />
                   <span className="text-slate-700 font-medium">{item}</span>
                 </div>
               ))}
             </div>
 
-            <p className="text-slate-500 leading-relaxed font-medium pt-4 bg-slate-50 p-6 rounded-2xl border-l-4 border-brand-blue">
+            <p className="text-brand-muted leading-relaxed font-medium pt-4 bg-brand-sky/50 p-6 rounded-2xl border-l-4 border-brand-blue">
               With **15+ years of expertise**, Spirare has delivered **100+ hydrogen plants** and **2,000+ sampling systems** across oil & gas, power, petrochemical, chemical, and steel sectors - ensuring safety, reliability, and precision in every installation. Spirare is also a key distributor of world-class instrumentation brands, offering one of the industry's widest portfolios of valves, regulators, fittings, and instrumentation hook-up products.
             </p>
           </motion.div>
@@ -105,7 +105,7 @@ const AboutPage = () => {
                 className="flex gap-8 group"
               >
                 <div className="shrink-0">
-                  <div className="w-20 h-20 rounded-full border-2 border-amber-100 flex items-center justify-center text-amber-600 group-hover:bg-amber-500 group-hover:text-white transition-all duration-500">
+                  <div className="w-20 h-20 rounded-full border-2 border-brand-blue/10 flex items-center justify-center text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-all duration-500 shadow-sm shadow-brand-blue/10">
                     <Target size={36} strokeWidth={1} />
                   </div>
                 </div>
@@ -124,7 +124,7 @@ const AboutPage = () => {
                 className="flex gap-8 group"
               >
                 <div className="shrink-0">
-                  <div className="w-20 h-20 rounded-full border-2 border-amber-100 flex items-center justify-center text-amber-600 group-hover:bg-amber-500 group-hover:text-white transition-all duration-500">
+                  <div className="w-20 h-20 rounded-full border-2 border-brand-blue/10 flex items-center justify-center text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-all duration-500 shadow-sm shadow-brand-blue/10">
                     <Eye size={36} strokeWidth={1} />
                   </div>
                 </div>
@@ -143,7 +143,7 @@ const AboutPage = () => {
               className="flex gap-8 group"
             >
               <div className="shrink-0">
-                <div className="w-20 h-20 rounded-full border-2 border-amber-100 flex items-center justify-center text-amber-600 group-hover:bg-amber-500 group-hover:text-white transition-all duration-500">
+                <div className="w-20 h-20 rounded-full border-2 border-brand-blue/10 flex items-center justify-center text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-all duration-500 shadow-sm shadow-brand-blue/10">
                   <ShieldCheck size={36} strokeWidth={1} />
                 </div>
               </div>
@@ -153,7 +153,7 @@ const AboutPage = () => {
                 <div className="space-y-10">
                   <div className="space-y-3">
                     <h4 className="text-xl font-bold text-slate-800 flex items-center gap-2">
-                      <span className="w-2 h-2 bg-amber-500 rounded-full shrink-0" />
+                      <span className="w-2 h-2 bg-brand-blue rounded-full shrink-0" />
                       Integrity
                     </h4>
                     <p className="text-slate-500 text-sm leading-relaxed border-l-2 border-slate-100 pl-6 ml-1">
@@ -163,7 +163,7 @@ const AboutPage = () => {
 
                   <div className="space-y-3">
                     <h4 className="text-xl font-bold text-slate-800 flex items-center gap-2">
-                      <span className="w-2 h-2 bg-amber-500 rounded-full shrink-0" />
+                      <span className="w-2 h-2 bg-brand-blue rounded-full shrink-0" />
                       Quality
                     </h4>
                     <p className="text-slate-500 text-sm leading-relaxed border-l-2 border-slate-100 pl-6 ml-1">
@@ -173,7 +173,7 @@ const AboutPage = () => {
 
                   <div className="space-y-3">
                     <h4 className="text-xl font-bold text-slate-800 flex items-center gap-2">
-                      <span className="w-2 h-2 bg-amber-500 rounded-full shrink-0" />
+                      <span className="w-2 h-2 bg-brand-blue rounded-full shrink-0" />
                       Customer Satisfaction
                     </h4>
                     <p className="text-slate-500 text-sm leading-relaxed border-l-2 border-slate-100 pl-6 ml-1">

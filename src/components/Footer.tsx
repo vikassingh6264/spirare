@@ -10,7 +10,7 @@ const Footer = () => {
 
   return (
     <footer className="w-full">
-      <div className="bg-brand-blue text-white py-16">
+      <div className="bg-brand-sky text-brand-navy py-16">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-24">
             <motion.div
@@ -21,12 +21,12 @@ const Footer = () => {
             >
               <div className="space-y-6">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center font-bold text-brand-dark text-2xl border-2 border-white">
+                  <div className="w-10 h-10 bg-brand-blue rounded-lg flex items-center justify-center font-bold text-white text-2xl border-2 border-brand-blue/20">
                     S
                   </div>
-                  <span className="text-2xl font-bold tracking-tighter text-white">Spirare Energy</span>
+                  <span className="text-2xl font-bold tracking-tighter text-brand-navy">Spirare Energy</span>
                 </div>
-                <p className="text-gray-300 text-sm leading-relaxed">
+                <p className="text-brand-muted text-sm leading-relaxed">
                   Spirare Energy is a leading global provider of on-site gas generation systems manufacturing Sealed Unipolar Electrolytic Cells and High Pressure Bipolar Technology.
                 </p>
                 <div className="flex gap-4 pt-4">
@@ -70,7 +70,7 @@ const Footer = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.1, backgroundColor: '#003882', color: '#fff' }}
-                      className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-gray-400 transition-all cursor-pointer"
+                      className="w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue transition-all cursor-pointer"
                     >
                       {social.icon}
                     </motion.a>
@@ -89,7 +89,7 @@ const Footer = () => {
               <div className="space-y-2">
                 <h2 className="text-xl font-bold uppercase tracking-wider relative inline-block">
                   Product Range
-                  <span className="absolute -bottom-2 left-0 w-12 h-0.5 bg-red-600"></span>
+                  <span className="absolute -bottom-2 left-0 w-12 h-0.5 bg-brand-blue"></span>
                 </h2>
               </div>
               <div className="grid grid-cols-2 gap-4">
@@ -97,8 +97,8 @@ const Footer = () => {
                   <ul key={colIdx} className="space-y-4">
                     {column.map((link) => (
                       <li key={link} className="flex items-center gap-2 group cursor-pointer">
-                        <ChevronRight size={14} className="text-gray-300 group-hover:text-red-600 transition-colors" />
-                        <span className="text-sm text-gray-300 group-hover:text-white transition-colors">{link}</span>
+                        <ChevronRight size={14} className="text-brand-muted group-hover:text-brand-blue transition-colors" />
+                        <span className="text-sm text-brand-muted group-hover:text-brand-navy transition-colors">{link}</span>
                       </li>
                     ))}
                   </ul>
@@ -113,25 +113,25 @@ const Footer = () => {
               className="space-y-8"
             >
               <div className="space-y-2">
-                <h2 className="text-xl font-bold uppercase tracking-wider relative inline-block text-white">
+                <h2 className="text-xl font-bold uppercase tracking-wider relative inline-block text-brand-navy">
                   Quick Links
-                  <span className="absolute -bottom-2 left-0 w-12 h-0.5 bg-red-600"></span>
+                  <span className="absolute -bottom-2 left-0 w-12 h-0.5 bg-brand-blue"></span>
                 </h2>
               </div>
               <ul className="space-y-4">
                 {[
                   { name: 'Home', href: '/' },
                   { name: 'About', href: '/about' },
-                  { name: 'Products', href: '/products' },
-                  { name: 'Services', href: '/services' },
+                  { name: 'Products', href: '/' },
+                  { name: 'Services', href: '/' },
                   { name: 'Contact', href: '/contact' },
                 ].map((link) => (
                   <li key={link.name}>
                     <Link
                       to={link.href}
-                      className="text-sm text-gray-300 hover:text-white transition-colors flex items-center gap-2 group"
+                      className="text-sm text-brand-muted hover:text-brand-navy transition-colors flex items-center gap-2 group"
                     >
-                      <ChevronRight size={14} className="group-hover:text-red-600 transition-colors" />
+                      <ChevronRight size={14} className="group-hover:text-brand-blue transition-colors" />
                       {link.name}
                     </Link>
                   </li>
@@ -142,10 +142,10 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="py-4 text-center">
+      <div className="py-4 text-center bg-brand-light">
         <div className="container mx-auto px-6 space-y-1">
-          <p className="text-brand-dark font-medium text-sm">
-            Copyright ©2016 Spirare Energy Pvt. Ltd. All right reserved.
+          <p className="text-brand-muted font-medium text-sm">
+            Copyright ©2026 Spirare Energy Pvt. Ltd. All right reserved.
           </p>
         </div>
       </div>

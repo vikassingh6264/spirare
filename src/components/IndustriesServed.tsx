@@ -34,7 +34,7 @@ const industries = [
 
 const IndustriesServed = () => {
   return (
-    <section className="py-24 bg-brand-dark text-white overflow-hidden">
+    <section className="py-24 bg-brand-sky text-brand-navy overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 gap-8">
           <div className="space-y-4 max-w-3xl">
@@ -44,8 +44,8 @@ const IndustriesServed = () => {
               viewport={{ once: true }}
               className="flex items-center gap-4"
             >
-              <div className="h-px w-12 bg-cyan-500" />
-              <span className="text-cyan-400 text-sm font-bold tracking-[0.2em] uppercase">
+              <div className="h-px w-12 bg-brand-blue" />
+              <span className="text-brand-blue text-sm font-bold tracking-[0.2em] uppercase">
                 Applications
               </span>
             </motion.div>
@@ -53,9 +53,9 @@ const IndustriesServed = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-5xl font-bold tracking-tight"
+              className="text-4xl md:text-5xl font-bold tracking-tight text-brand-navy"
             >
-              INDUSTRIES WE <span className="text-cyan-500">SERVE</span>
+              INDUSTRIES WE <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-[#0052BF]">SERVE</span>
             </motion.h2>
           </div>
           <motion.div
@@ -65,7 +65,7 @@ const IndustriesServed = () => {
             viewport={{ once: true }}
             className="max-w-xl"
           >
-            <p className="text-gray-400 text-lg leading-relaxed">
+            <p className="text-brand-muted text-lg leading-relaxed">
               Spirare Energy provides ultra-pure hydrogen on-site for a variety of
               industrial and advanced technology applications, ensuring reliability
               across diverse sectors.
@@ -81,27 +81,27 @@ const IndustriesServed = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group relative h-[400px] overflow-hidden rounded-3xl border border-white/10"
+              className="group relative h-[400px] overflow-hidden rounded-3xl border border-brand-blue/10 bg-white"
             >
               {/* Image Background */}
               <div className="absolute inset-0 z-0 transition-transform duration-700 group-hover:scale-110">
                 <img
                   src={industry.image || '/industries/petrochemical.png'}
                   alt={industry.title}
-                  className="w-full h-full object-cover brightness-50 group-hover:brightness-[0.4] transition-all"
+                  className="w-full h-full object-cover transition-all"
                 />
               </div>
 
               {/* Overlay Gradient */}
-              <div className="absolute inset-0 z-10 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
+              <div className="absolute inset-0 z-10 bg-gradient-to-t from-white via-white/80 to-transparent opacity-90 group-hover:opacity-95 transition-opacity" />
 
               {/* Content */}
               <div className="absolute inset-0 z-20 p-8 flex flex-col justify-end gap-4">
-                <div className="h-1 w-12 bg-cyan-500 transition-all duration-300 group-hover:w-24" />
-                <h3 className="text-2xl font-bold tracking-tight text-white group-hover:text-cyan-400 transition-colors">
+                <div className="h-1 w-12 bg-brand-blue transition-all duration-300 group-hover:w-24" />
+                <h3 className="text-2xl font-bold tracking-tight text-brand-navy group-hover:text-brand-blue transition-colors">
                   {industry.title}
                 </h3>
-                <p className="text-gray-300 text-sm opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                <p className="text-brand-muted text-sm opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 font-medium">
                   {industry.description}
                 </p>
               </div>

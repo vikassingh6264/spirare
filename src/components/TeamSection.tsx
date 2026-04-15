@@ -29,22 +29,22 @@ const team = [
 
 const TeamSection = () => {
   return (
-    <section id="leadership" className="py-24 bg-[#0A1128] relative overflow-hidden">
+    <section id="leadership" className="py-24 bg-brand-light relative overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 left-0 w-full h-full opacity-10"
-          style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #3b82f6 1px, transparent 0)', backgroundSize: '40px 40px' }} />
-        <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-600/20 blur-[120px] rounded-full" />
-        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-cyan-600/20 blur-[120px] rounded-full" />
+        <div className="absolute top-0 left-0 w-full h-full opacity-5"
+          style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #003882 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-brand-blue/5 blur-[120px] rounded-full" />
+        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-brand-blue/5 blur-[120px] rounded-full" />
       </div>
       <div className="container mx-auto px-6 relative z-10">
         <div className="mb-12">
           <motion.h2
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            className="text-5xl md:text-7xl font-black tracking-tight text-white uppercase italic"
-            style={{ WebkitTextStroke: '2px rgba(59, 130, 246, 0.5)' }}
+            className="text-5xl md:text-7xl font-black tracking-tight text-brand-navy uppercase italic"
+            style={{ WebkitTextStroke: '2px rgba(0, 56, 130, 0.1)' }}
           >
-            OUR <span className="text-cyan-500 drop-shadow-[0_0_15px_rgba(6,182,212,0.5)]">LEADERSHIP</span>
+            OUR <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-blue-400 drop-shadow-sm">LEADERSHIP</span>
           </motion.h2>
         </div>
 
@@ -56,23 +56,23 @@ const TeamSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="flex flex-col h-full group"
+              className="flex flex-col h-full group bg-white p-4 rounded-[3rem] border border-brand-blue/5 shadow-xl shadow-brand-blue/5 hover:shadow-brand-blue/10 transition-all duration-500"
             >
-              <div className="relative aspect-[4/5] overflow-hidden rounded-t-[2.5rem] mb-6 border-x border-t border-white/10">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] mb-6 shadow-md shadow-brand-blue/5">
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A1128] via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-blue/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
 
-              <div className="flex-grow space-y-4 px-2">
+              <div className="flex-grow space-y-3 px-2">
                 <div>
-                  <h4 className="text-2xl font-bold text-white tracking-tight">{member.name}</h4>
-                  <p className="text-cyan-500 text-sm font-bold uppercase tracking-widest">{member.role}</p>
+                  <h4 className="text-xl font-bold text-brand-navy tracking-tight">{member.name}</h4>
+                  <p className="text-brand-blue text-xs font-bold uppercase tracking-widest">{member.role}</p>
                 </div>
-                <p className="text-gray-400 text-xs leading-relaxed font-medium">
+                <p className="text-brand-muted text-[11px] leading-relaxed font-medium line-clamp-6">
                   {member.bio}
                 </p>
               </div>

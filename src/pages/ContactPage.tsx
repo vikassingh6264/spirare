@@ -34,7 +34,7 @@ const offices: Office[] = [
     addr: '605 Rohit House, 3 Tolstoy Marg, Connaught Place, New Delhi – 110001',
     phone: '+91 11 43671946',
     email: 'info@spirare.co.in',
-    color: 'from-blue-500 to-cyan-500',
+    color: 'from-brand-blue to-blue-400',
     mapQuery: 'Rohit+House+Tolstoy+Marg+Connaught+Place+New+Delhi',
   },
   {
@@ -43,7 +43,7 @@ const offices: Office[] = [
     addr: 'G-21, Greenwood City, Sector-40, Opposite Community Centre, Gurgaon – 122002',
     phone: '+91 124 4049121',
     email: 'sales@spirare.co.in',
-    color: 'from-emerald-500 to-teal-500',
+    color: 'from-sky-500 to-blue-400',
     mapQuery: 'Greenwood+City+Sector+40+Gurgaon',
   },
   {
@@ -52,7 +52,7 @@ const offices: Office[] = [
     addr: 'C-83, Sector 88, Phase-II, Noida – 201305 (U.P.)',
     phone: '+91 120 4049121',
     email: 'works@spirare.co.in',
-    color: 'from-amber-500 to-orange-500',
+    color: 'from-blue-600 to-brand-blue',
     mapQuery: 'Sector+88+Phase+II+Noida',
   }
 ];
@@ -306,8 +306,8 @@ const ContactForm = memo(({ onSubmit }: { onSubmit: (data: FormData) => Promise<
         disabled={isSubmitting}
         whileHover={{ scale: isSubmitting ? 1 : 1.01 }}
         whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-        className={`w-full py-4 bg-brand-blue text-white font-bold rounded-xl flex items-center justify-center gap-2.5 shadow-xl shadow-brand-blue/25 transition-all text-sm uppercase tracking-wider
-          ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:shadow-2xl hover:bg-[#004099]'}`}
+        className={`w-full py-4 bg-brand-blue text-white font-bold rounded-xl flex items-center justify-center gap-2.5 shadow-lg shadow-brand-blue/20 transition-all text-sm uppercase tracking-wider
+          ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:shadow-xl hover:bg-[#004099]'}`}
       >
         {isSubmitting ? (
           <>
@@ -386,23 +386,23 @@ const ContactPage = () => {
     <div className="bg-white overflow-hidden">
       <section className="relative h-[90vh] min-h-[520px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-brand-dark" />
-          <div className="absolute inset-0 opacity-[0.03] bg-grid-pattern" />
-          <div className="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-blue/20 rounded-full blur-3xl" />
+          <div className="absolute inset-0 bg-brand-light" />
+          <div className="absolute inset-0 opacity-[0.05] bg-grid-pattern" />
+          <div className="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-brand-blue/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-blue/10 rounded-full blur-3xl" />
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
           <motion.div {...heroAnimation} className="max-w-3xl space-y-6">
-            <div className="flex items-center gap-2 text-cyan-500 font-bold tracking-widest uppercase text-sm">
-              <span className="w-8 h-px bg-cyan-500" />
+            <div className="flex items-center gap-2 text-brand-blue font-bold tracking-widest uppercase text-sm">
+              <span className="w-8 h-px bg-brand-blue" />
               Contact Us
             </div>
-            <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white uppercase leading-tight">
+            <h1 className="text-5xl md:text-7xl font-black tracking-tight text-brand-navy uppercase leading-tight">
               LET'S BUILD <br />
-              <span className="text-cyan-500">TOGETHER</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-blue-400">TOGETHER</span>
             </h1>
-            <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-2xl font-medium">
+            <p className="text-brand-muted text-lg md:text-xl leading-relaxed max-w-2xl font-medium">
               Connect with our expert engineering teams across New Delhi, Gurgaon, and Noida.
               We are available for technical support, project inquiries, and consultation.
             </p>
@@ -477,12 +477,12 @@ const ContactPage = () => {
             initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-brand-blue via-[#004099] to-brand-dark p-12 md:p-16 text-center"
+            className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-brand-blue via-blue-700 to-blue-800 p-12 md:p-16 text-center shadow-2xl"
           >
             <div className="absolute inset-0 opacity-10 bg-dots-pattern" />
             <div className="relative z-10 max-w-2xl mx-auto space-y-6">
               <h3 className="text-3xl md:text-4xl font-bold text-white uppercase tracking-tight">
-                Ready to Optimize Your <span className="text-cyan-400">Gas Systems?</span>
+                Ready to Optimize Your <span className="text-blue-100">Gas Systems?</span>
               </h3>
               <p className="text-blue-200 text-lg font-medium">
                 Get a personalized consultation on on-site hydrogen, nitrogen, and oxygen generation from our expert team.
@@ -508,21 +508,21 @@ const ContactPage = () => {
         </div>
       </section>
       {/* Leadership Team Section */}
-      <section className="py-24 bg-brand-dark relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.03] bg-grid-pattern" />
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[150px]" />
+      <section className="py-24 bg-brand-light relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.05] bg-grid-pattern" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-blue/5 rounded-full blur-[150px]" />
 
         <div className="container mx-auto px-6 relative z-10">
           <AnimatedSection className="text-center mb-16 space-y-4">
-            <div className="flex items-center justify-center gap-2 text-cyan-500 font-bold tracking-widest uppercase text-sm">
-              <span className="w-8 h-px bg-cyan-500" />
+            <div className="flex items-center justify-center gap-2 text-brand-blue font-bold tracking-widest uppercase text-sm">
+              <span className="w-8 h-px bg-brand-blue" />
               Key Contacts
-              <span className="w-8 h-px bg-cyan-500" />
+              <span className="w-8 h-px bg-brand-blue" />
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white uppercase">
-              LEADERSHIP <span className="text-cyan-500">TEAM</span>
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-brand-navy uppercase">
+              LEADERSHIP <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-blue-400">TEAM</span>
             </h2>
-            <p className="text-gray-400 text-lg font-medium max-w-xl mx-auto">
+            <p className="text-brand-muted text-lg font-medium max-w-xl mx-auto">
               Reach out directly to our leadership for strategic partnerships and enterprise projects.
             </p>
           </AnimatedSection>
@@ -536,21 +536,21 @@ const ContactPage = () => {
                 transition={{ delay: prefersReducedMotion ? 0 : i * 0.15, duration: 0.5 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -5 }}
-                className="relative p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:border-cyan-500/30 hover:bg-white/[0.08] transition-all group"
+                className="relative p-8 rounded-2xl bg-white border border-brand-blue/10 shadow-lg hover:border-brand-blue/30 transition-all group"
               >
                 <div className="flex items-start gap-5">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white shrink-0 shadow-lg shadow-cyan-500/20 group-hover:shadow-cyan-500/40 transition-shadow">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-blue to-blue-600 flex items-center justify-center text-white shrink-0 shadow-lg shadow-brand-blue/10 group-hover:shadow-brand-blue/20 transition-shadow">
                     <User size={28} strokeWidth={1.5} />
                   </div>
                   <div className="space-y-2 flex-1">
-                    <div className="text-xs font-bold text-cyan-500 uppercase tracking-widest">{man.role}</div>
-                    <div className="text-xl font-bold text-white">{man.name}</div>
+                    <div className="text-xs font-bold text-brand-blue uppercase tracking-widest">{man.role}</div>
+                    <div className="text-xl font-bold text-brand-navy">{man.name}</div>
                     <div className="pt-2 space-y-1.5">
-                      <a href={`tel:${man.phone.replace(/\s/g, '')}`} className="flex items-center gap-2 text-sm text-gray-400 hover:text-cyan-400 transition-colors font-medium group/link">
+                      <a href={`tel:${man.phone.replace(/\s/g, '')}`} className="flex items-center gap-2 text-sm text-brand-muted hover:text-brand-blue transition-colors font-medium group/link">
                         <Phone size={13} /> {man.phone}
                         <ArrowRight size={12} className="opacity-0 group-hover/link:opacity-100 transition-opacity" />
                       </a>
-                      <a href={`mailto:${man.email}`} className="flex items-center gap-2 text-sm text-gray-400 hover:text-cyan-400 transition-colors font-medium group/link">
+                      <a href={`mailto:${man.email}`} className="flex items-center gap-2 text-sm text-brand-muted hover:text-brand-blue transition-colors font-medium group/link">
                         <Mail size={13} /> {man.email}
                         <ArrowRight size={12} className="opacity-0 group-hover/link:opacity-100 transition-opacity" />
                       </a>

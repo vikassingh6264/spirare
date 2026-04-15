@@ -1,41 +1,70 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const IMAGES = [
+const SLIDES = [
   {
     src: '/hero_slide_2.png',
-    alt: 'Hydrogen generation facility overview'
+    title: 'Hydrogen Generation',
+    subtitle: 'High Pressure Bipolar Technology',
+    description: 'Advanced on-site hydrogen generation solutions partnering with PERIC for complete industrial plants. Our high-pressure bipolar electrolysis technology delivers exceptional efficiency and reliability, enabling seamless integration into existing infrastructure while reducing operational costs and carbon footprint.',
+    accentColor: 'from-cyan-400/30',
+    shadowColor: 'rgba(6, 182, 212, 0.4)'
   },
   {
     src: '/hero_slide_3.png',
-    alt: 'Advanced electrolytic cell manufacturing'
+    title: 'Gas Purification',
+    subtitle: 'Purity Without Compromise',
+    description: 'Expertly designed Sealed Unipolar Electrolytic Cells and advanced air dryers for critical applications. Achieve up to 99.9999% purity levels with our precision-engineered systems, ideal for pharmaceutical, semiconductor, and laboratory environments where contamination is not an option.',
+    accentColor: 'from-blue-400/30',
+    shadowColor: 'rgba(59, 130, 246, 0.4)'
   },
   {
     src: '/hero_slide_4.png',
-    alt: 'High pressure bipolar technology plant'
+    title: 'Industrial Solutions',
+    subtitle: 'Sustainable Energy Systems',
+    description: 'Empowering heavy industries with reliable, sustainable, and high-purity gas production systems. From steel manufacturing to chemical processing, our turnkey solutions deliver consistent performance, lower energy consumption, and measurable environmental benefits for large-scale operations worldwide.',
+    accentColor: 'from-sky-400/30',
+    shadowColor: 'rgba(14, 165, 233, 0.4)'
   }
 ];
 
 const slideVariants = {
   enter: (direction: number) => ({
     x: direction > 0 ? '100%' : '-100%',
-    opacity: 1
+    opacity: 0,
+    scale: 1.1
   }),
   center: {
     zIndex: 1,
     x: 0,
-    opacity: 1
+    opacity: 1,
+    scale: 1,
+    transition: {
+      x: { type: "spring", stiffness: 300, damping: 30 },
+      opacity: { duration: 0.6 },
+      scale: { duration: 0.8 }
+    }
   },
   exit: (direction: number) => ({
     zIndex: 0,
     x: direction < 0 ? '100%' : '-100%',
-    opacity: 1
+    opacity: 0,
+    transition: {
+      x: { type: "spring", stiffness: 300, damping: 30 },
+      opacity: { duration: 0.4 }
+    }
   })
+};
+
+const textVariants = {
+  enter: { opacity: 0, y: 30 },
+  center: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -30 }
 };
 
 const Hero = () => {
   const [[page, direction], setPage] = useState([0, 0]);
-  const currentSlide = (page % IMAGES.length + IMAGES.length) % IMAGES.length;
+  const currentSlide = (page % SLIDES.length + SLIDES.length) % SLIDES.length;
 
   const paginate = (newDirection: number) => {
     setPage([page + newDirection, newDirection]);
@@ -44,96 +73,97 @@ const Hero = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       paginate(1);
-    }, 5000);
+    }, 6000);
 
     return () => clearInterval(timer);
   }, [page]);
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-black">
+    <section className="relative min-h-[100vh] flex items-center overflow-hidden bg-white">
       <div className="absolute inset-0 z-0">
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
             key={page}
             custom={direction}
-            variants={slideVariants}
+            variants={slideVariants as any}
             initial="enter"
             animate="center"
             exit="exit"
-            transition={{
-              x: { type: "tween", duration: 1.2, ease: [0.4, 0, 0.2, 1] }
-            }}
             className="absolute inset-0 w-full h-full"
-            style={{
-              backgroundImage: `url(${IMAGES[currentSlide].src})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              filter: 'grayscale(15%) contrast(1.15) brightness(0.8)'
-            }}
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-700/70 via-slate-700/50 to-black/70" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${SLIDES[currentSlide].src})` }}
+            />
+            <div
+              className={`absolute inset-0 bg-gradient-to-br transition-colors duration-1000 ${SLIDES[currentSlide].accentColor} to-white/40 opacity-90`}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-white via-white/70 to-transparent" />
           </motion.div>
         </AnimatePresence>
       </div>
 
-      <div className="absolute bottom-8 left-0 right-0 z-30 flex justify-center gap-2 md:gap-3">
-        {IMAGES.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => {
-              if (index === currentSlide) return;
-              const direction = index > currentSlide ? 1 : -1;
-              setPage([index, direction]);
-            }}
-            className={`
-              transition-all duration-300 rounded-full cursor-pointer
-              ${currentSlide === index
-                ? 'w-10 md:w-12 h-1.5 bg-cyan-500'
-                : 'w-6 md:w-8 h-1.5 bg-white/40 hover:bg-white/60'
-              }
-            `}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
+      {/* Content Container */}
+      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-12">
+        <div className="max-w-4xl">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={page}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              variants={textVariants}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            >
+              <div className="inline-block mb-6 px-4 py-1.5 rounded-full bg-brand-blue/5 backdrop-blur-md border border-brand-blue/10">
+                <span className="text-brand-blue text-xs md:text-sm font-bold tracking-[0.2em] uppercase">
+                  {SLIDES[currentSlide].subtitle}
+                </span>
+              </div>
 
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-4 md:px-8 py-20">
-        <div className="text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="inline-block mb-6 px-4 py-2 rounded-full bg-cyan-500/10 backdrop-blur-sm border border-cyan-500/20"
-          >
-            <span className="text-cyan-400 text-xs md:text-sm font-semibold tracking-wide uppercase">
-              Innovation in Energy
-            </span>
-          </motion.div>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white mb-6"
-          >
-            Welcome to{' '}
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-              Spirare Energy
-            </span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base md:text-lg lg:text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed px-4"
-          >
-            Spirare Energy is a leading global provider of on-site gas generation systems,
-            manufacturing Sealed Unipolar Electrolytic Cells and partnering with Purification
-            Equipment Research Institute of CSIC (PERIC), China for complete Hydrogen Plants
-            utilizing High Pressure Bipolar Technology.
-          </motion.p>
+              <h1 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight text-brand-navy mb-8 leading-[0.9]">
+                {SLIDES[currentSlide].title.split(' ').map((word, i) => (
+                  <span key={i} className={i === 1 ? "block text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-[#0052BF]" : "block"}>
+                    {word}
+                  </span>
+                ))}
+              </h1>
+              <p className="text-lg md:text-xl text-brand-muted max-w-2xl leading-relaxed mb-10 font-medium">
+                {SLIDES[currentSlide].description}
+              </p>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
+      <div className="absolute bottom-12 left-6 md:left-12 z-30 flex items-center gap-6">
+        <div className="flex gap-2">
+          {SLIDES.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                const direction = index > currentSlide ? 1 : -1;
+                setPage([index, direction]);
+              }}
+              className="group relative h-12 w-1.5 bg-brand-blue/10 overflow-hidden rounded-full"
+            >
+              <motion.div
+                className="absolute top-0 left-0 w-full bg-brand-blue"
+                initial={false}
+                animate={{ height: index === currentSlide ? '100%' : '0%' }}
+                transition={{ duration: 0.5 }}
+              />
+            </button>
+          ))}
+        </div>
+        <div className="flex flex-col">
+          <span className="text-brand-navy text-sm font-bold tracking-tighter">0{currentSlide + 1}</span>
+          <span className="text-brand-muted text-[10px] font-bold tracking-widest uppercase">/ 0{SLIDES.length}</span>
+        </div>
+      </div>
+      <div
+        className="absolute -right-20 top-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[120px] transition-colors duration-1000 opacity-20"
+        style={{ backgroundColor: SLIDES[currentSlide].shadowColor }}
+      />
     </section>
   );
 };

@@ -60,7 +60,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'py-3 bg-brand-blue border-b border-white/10 shadow-md' : 'py-5 bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'py-3 bg-white/90 backdrop-blur-md border-b border-brand-blue/10 shadow-sm' : 'py-5 bg-transparent'
         }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
@@ -71,12 +71,12 @@ const Navbar = () => {
             className="flex items-center gap-2.5 group cursor-pointer"
           >
             <div
-              className={`w-10 h-10 rounded-lg flex items-center justify-center font-bold text-xl shadow-lg transition-all duration-300 group-hover:scale-110 ${isScrolled ? 'bg-white text-brand-blue' : 'bg-white/20 text-white border border-white/30'
+              className={`w-10 h-10 rounded-lg flex items-center justify-center font-bold text-xl shadow-lg transition-all duration-300 group-hover:scale-110 ${isScrolled ? 'bg-brand-blue text-white' : 'bg-brand-blue/10 text-brand-blue border border-brand-blue/20'
                 }`}
             >
               S
             </div>
-            <span className="text-2xl font-bold tracking-tight text-white transition-all duration-300 group-hover:opacity-90">
+            <span className={`text-2xl font-bold tracking-tight transition-all duration-300 group-hover:opacity-90 ${isScrolled ? 'text-brand-navy' : 'text-brand-navy'}`}>
               Spirare Energy
             </span>
           </motion.div>
@@ -94,12 +94,12 @@ const Navbar = () => {
             >
               <Link
                 to={link.href}
-                className={`relative text-sm font-semibold tracking-widest uppercase px-4 py-2 rounded-lg transition-all duration-300 group ${isActive(link.href) ? 'text-white' : 'text-white/80 hover:text-white'
+                className={`relative text-sm font-semibold tracking-widest uppercase px-4 py-2 rounded-lg transition-all duration-300 group ${isActive(link.href) ? 'text-brand-blue' : 'text-brand-navy hover:text-brand-blue'
                   }`}
               >
                 {link.name}
                 <span
-                  className={`absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-white rounded-full transition-all duration-300 ${isActive(link.href) ? 'w-12' : 'w-0 group-hover:w-12'
+                  className={`absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-brand-blue rounded-full transition-all duration-300 ${isActive(link.href) ? 'w-12' : 'w-0 group-hover:w-12'
                     }`}
                 />
               </Link>
@@ -114,7 +114,7 @@ const Navbar = () => {
             onMouseLeave={handleMouseLeave}
           >
             <div
-              className={`relative text-sm font-semibold tracking-widest uppercase px-4 py-2 rounded-lg transition-all duration-300 flex items-center gap-1.5 group ${isActive('/products') ? 'text-white' : 'text-white/80 hover:text-white'
+              className={`relative text-sm font-semibold tracking-widest uppercase px-4 py-2 rounded-lg transition-all duration-300 flex items-center gap-1.5 group ${isActive('/products') ? 'text-brand-blue' : 'text-brand-navy hover:text-brand-blue'
                 }`}
             >
               Products
@@ -123,7 +123,7 @@ const Navbar = () => {
                 className={`transition-transform duration-300 ${activeDropdown === 'products' ? 'rotate-180' : ''}`}
               />
               <span
-                className={`absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-white rounded-full transition-all duration-300 ${isActive('/products') || activeDropdown === 'products' ? 'w-12' : 'w-0 group-hover:w-12'
+                className={`absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-brand-blue rounded-full transition-all duration-300 ${isActive('/products') || activeDropdown === 'products' ? 'w-12' : 'w-0 group-hover:w-12'
                   }`}
               />
             </div>
@@ -171,7 +171,7 @@ const Navbar = () => {
             onMouseLeave={handleMouseLeave}
           >
             <div
-              className={`relative text-sm font-semibold tracking-widest uppercase px-4 py-2 rounded-lg transition-all duration-300 flex items-center gap-1.5 group ${isActive('/services') ? 'text-white' : 'text-white/80 hover:text-white'
+              className={`relative text-sm font-semibold tracking-widest uppercase px-4 py-2 rounded-lg transition-all duration-300 flex items-center gap-1.5 group ${isActive('/services') ? 'text-brand-blue' : 'text-brand-navy hover:text-brand-blue'
                 }`}
             >
               Services
@@ -180,7 +180,7 @@ const Navbar = () => {
                 className={`transition-transform duration-300 ${activeDropdown === 'services' ? 'rotate-180' : ''}`}
               />
               <span
-                className={`absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-white rounded-full transition-all duration-300 ${isActive('/services') || activeDropdown === 'services' ? 'w-12' : 'w-0 group-hover:w-12'
+                className={`absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-brand-blue rounded-full transition-all duration-300 ${isActive('/services') || activeDropdown === 'services' ? 'w-12' : 'w-0 group-hover:w-12'
                   }`}
               />
             </div>
@@ -229,12 +229,12 @@ const Navbar = () => {
           >
             <Link
               to="/contact"
-              className={`relative text-sm font-semibold tracking-widest uppercase px-4 py-2 rounded-lg transition-all duration-300 group ${isActive('/contact') ? 'text-white' : 'text-white/80 hover:text-white'
+              className={`relative text-sm font-semibold tracking-widest uppercase px-4 py-2 rounded-lg transition-all duration-300 group ${isActive('/contact') ? 'text-brand-blue' : 'text-brand-navy hover:text-brand-blue'
                 }`}
             >
               Contact
               <span
-                className={`absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-white rounded-full transition-all duration-300 ${isActive('/contact') ? 'w-12' : 'w-0 group-hover:w-12'
+                className={`absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-brand-blue rounded-full transition-all duration-300 ${isActive('/contact') ? 'w-12' : 'w-0 group-hover:w-12'
                   }`}
               />
             </Link>
@@ -248,16 +248,16 @@ const Navbar = () => {
           >
             <Link
               to="/contact"
-              className="relative overflow-hidden inline-flex items-center px-6 py-2.5 bg-white text-brand-blue font-bold rounded-full text-xs tracking-widest uppercase transition-all shadow-md hover:shadow-lg hover:scale-105 active:scale-95 group"
+              className="relative overflow-hidden inline-flex items-center px-6 py-2.5 bg-brand-blue text-white font-bold rounded-full text-xs tracking-widest uppercase transition-all shadow-md hover:shadow-lg hover:scale-105 active:scale-95 group"
             >
               <span className="relative z-10">Get a Quote</span>
-              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-blue/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
             </Link>
           </motion.div>
         </div>
 
         <button
-          className="md:hidden text-white hover:scale-110 transition-transform duration-200 p-1"
+          className="md:hidden text-brand-navy hover:scale-110 transition-transform duration-200 p-1"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
