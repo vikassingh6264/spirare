@@ -224,6 +224,24 @@ const Navbar = () => {
             transition={{ delay: 0.32 }}
           >
             <Link
+              to="/resources"
+              className={`relative text-sm font-semibold tracking-widest uppercase px-4 py-2 rounded-lg transition-all duration-300 group ${isActive('/resources') ? 'text-brand-blue' : (isScrolled ? 'text-brand-navy' : 'text-white')
+                }`}
+            >
+              Resources
+              <span
+                className={`absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-brand-blue rounded-full transition-all duration-300 ${isActive('/resources') ? 'w-12' : 'w-12 group-hover:w-12'
+                  }`}
+              />
+            </Link>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.40 }}
+          >
+            <Link
               to="/contact"
               className={`relative text-sm font-semibold tracking-widest uppercase px-4 py-2 rounded-lg transition-all duration-300 group ${isActive('/contact') ? 'text-brand-blue' : (isScrolled ? 'text-brand-navy' : 'text-white')
                 }`}
@@ -239,7 +257,7 @@ const Navbar = () => {
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.40 }}
+            transition={{ delay: 0.48 }}
             className="ml-3"
           >
             <Link
@@ -441,6 +459,18 @@ const Navbar = () => {
                   )}
                 </AnimatePresence>
               </div>
+
+              {/* Mobile Resources */}
+              <Link
+                to="/resources"
+                className={`text-sm font-bold uppercase tracking-widest py-3 px-4 rounded-xl transition-all duration-200 ${isActive('/resources')
+                  ? 'text-brand-blue bg-brand-blue/5'
+                  : 'text-slate-700 hover:text-brand-blue hover:bg-slate-50'
+                  }`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Resources
+              </Link>
 
               {/* Mobile Contact */}
               <Link

@@ -3,15 +3,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const SLIDES = [
   {
-    src: '/hero_slide_2.png',
+    src: '/hero/product_1.png',
     title: 'Designed for efficiency. Built for the future.',
   },
   {
-    src: '/hero_slide_3.png',
+    src: '/hero/product_2_v3.png',
     title: 'Built for precision. Proven for safety. Trusted everywhere',
   },
   {
-    src: '/hero_slide_4.png',
+    src: '/hero/product_3.png',
     title: 'State of the art smart sample conditioning',
   }
 ];
