@@ -7,7 +7,7 @@ const CATEGORIES = [
     id: 'manufacturing',
     title: 'MANUFACTURING EXCELLENCE',
     icon: <Factory size={40} />,
-    color: 'from-brand-blue to-blue-900',
+    color: 'from-[#B87333] to-[#B87333]',
     points: [
       'Precision driven manufacturing with disciplined process control',
       'Controlled fabrication using approved materials and qualified procedures',
@@ -21,7 +21,7 @@ const CATEGORIES = [
     id: 'sampling',
     title: 'MANUAL SAMPLING SYSTEM',
     icon: <FlaskConical size={40} />,
-    color: 'from-brand-blue to-blue-900',
+    color: 'from-[#B87333] to-[#B87333]',
     points: [
       'Sampling Is Our DNA: accuracy drives our engineering decisions',
       'Delivering truly representative samples from process tap to laboratory',
@@ -34,7 +34,7 @@ const CATEGORIES = [
     id: 'hydrogen',
     title: 'ON-SITE H2 GENERATION',
     icon: <Zap size={40} />,
-    color: 'from-brand-blue to-blue-900',
+    color: 'from-[#B87333] to-[#B87333]',
     points: [
       'Variable capacity hydrogen plants (Alkaline, PEM, and SOEC)',
       'Complete ecosystem: purification, compression, storage, and dispensers',
@@ -58,7 +58,6 @@ const ExcellenceSection = () => {
             viewport={{ once: true }}
             className="flex items-center justify-center gap-4 mb-4"
           >
-            {/* <div className="h-px w-12 bg-brand-blue" /> */}
             <span className="text-brand-blue font-bold tracking-[0.2em] uppercase text-sm">
               Our Capabilities
             </span>
@@ -76,26 +75,20 @@ const ExcellenceSection = () => {
               onMouseLeave={() => setHoveredId(null)}
               className={`relative overflow-hidden transition-all duration-700 ease-in-out cursor-pointer group rounded-3xl ${hoveredId === category.id
                 ? 'flex-[4] h-[400px] shadow-2xl'
-                : 'flex-1 h-[450px] bg-slate-50'
+                : 'flex-1 h-[450px] bg-brand-blue'
                 }`}
             >
-              {/* Background with Gradient */}
               <div className={`absolute inset-0 bg-gradient-to-br transition-opacity duration-700 ${category.color} ${hoveredId === category.id ? 'opacity-100' : 'opacity-0'
                 }`} />
-
-              {/* Content Wrapper */}
-              <div className="relative h-full p-8 flex flex-col">
-                <div className="flex flex-col lg:flex-row lg:items-center gap-6 mb-8">
-                  <div className={`p-4 rounded-2xl transition-all duration-500 ${hoveredId === category.id ? 'bg-white/20 text-white rotate-0' : 'bg-white text-brand-blue shadow-lg group-hover:rotate-0'
-                    }`}>
+              <div className="relative h-full p-8 flex flex-col items-center justify-center">
+                <div className="flex flex-col items-center justify-center gap-6 mb-8">
+                  <div className={`p-4 w-fit rounded-2xl transition-all duration-500 ${hoveredId === category.id ? 'bg-white/20 text-white' : 'bg-white text-brand-blue shadow-lg'}`}>
                     {category.icon}
                   </div>
-                  <h3 className={`text-xl lg:text-2xl font-black tracking-tight transition-colors duration-500 ${hoveredId === category.id ? 'text-white' : 'text-brand-navy'
-                    } ${hoveredId !== category.id && 'lg:[writing-mode:vertical-rl] lg:rotate-180'}`}>
+                  <h3 className={`text-xl lg:text-2xl font-black tracking-tight transition-colors duration-500 ${hoveredId === category.id ? 'text-white' : 'text-white'}`}>
                     {category.title}
                   </h3>
                 </div>
-
                 <AnimatePresence>
                   {hoveredId === category.id && (
                     <motion.div

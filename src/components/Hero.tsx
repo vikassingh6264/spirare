@@ -83,52 +83,25 @@ const Hero = () => {
           </motion.div>
         </AnimatePresence>
       </div>
-      <div className="relative z-20 w-full max-w-8xl mx-auto px-6 md:px-12">
-        <div className="max-w-4xl">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={page}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              variants={textVariants}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-            >
-              <h1 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight text-white mb-8 leading-[0.9]">
-                {SLIDES[currentSlide].title.split('. ').map((part, i) => (
-                  <span key={i} className="block mb-2">
-                    {part}
-                  </span>
-                ))}
-              </h1>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </div>
-      <div className="absolute bottom-12 left-6 md:left-12 z-30 flex items-center gap-6">
-        <div className="flex gap-2">
-          {SLIDES.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => {
-                const direction = index > currentSlide ? 1 : -1;
-                setPage([index, direction]);
-              }}
-              className="group relative h-12 w-1.5 bg-white/20 overflow-hidden rounded-full"
-            >
-              <motion.div
-                className="absolute top-0 left-0 w-full bg-white"
-                initial={false}
-                animate={{ height: index === currentSlide ? '100%' : '0%' }}
-                transition={{ duration: 0.5 }}
-              />
-            </button>
-          ))}
-        </div>
-        <div className="flex flex-col">
-          <span className="text-white text-sm font-bold tracking-tighter">0{currentSlide + 1}</span>
-          <span className="text-white/40 text-[10px] font-bold tracking-widest uppercase">/ 0{SLIDES.length}</span>
-        </div>
+      <div className="absolute bottom-28 left-0 z-20 w-[90%] max-w-2xl rounded-r-full h-[240px] bg-[#F5F5F5]/40 backdrop-blur-sm p-8 md:p-12 shadow-2xl flex flex-col justify-center">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={page}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            variants={textVariants}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
+            <h1 className="text-4xl md:text-5xl font-black tracking-tight text-brand-navy leading-[1.1] italic">
+              {SLIDES[currentSlide].title.split('. ').map((part, i) => (
+                <span key={i} className="block text-brand-blue">
+                  {part}
+                </span>
+              ))}
+            </h1>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );

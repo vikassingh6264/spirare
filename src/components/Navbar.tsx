@@ -90,12 +90,12 @@ const Navbar = () => {
             >
               <Link
                 to={link.href}
-                className={`relative text-sm font-semibold tracking-widest uppercase px-4 py-2 rounded-lg transition-all duration-300 group ${isActive(link.href) ? 'text-brand-blue' : (isScrolled ? 'text-brand-navy hover:text-brand-blue' : 'text-white hover:text-brand-blue')
+                className={`relative text-sm font-semibold tracking-widest uppercase px-4 py-2 rounded-lg transition-all duration-300 group ${isActive(link.href) ? 'text-brand-blue' : (isScrolled ? 'text-brand-navy' : 'text-white')
                   }`}
               >
                 {link.name}
                 <span
-                  className={`absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-brand-blue rounded-full transition-all duration-300 ${isActive(link.href) ? 'w-12' : 'w-0 group-hover:w-12'
+                  className={`absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-brand-blue rounded-full transition-all duration-300 ${isActive(link.href) ? 'w-12' : 'w-12 group-hover:w-12'
                     }`}
                 />
               </Link>
@@ -110,7 +110,7 @@ const Navbar = () => {
             onMouseLeave={handleMouseLeave}
           >
             <div
-              className={`relative text-sm font-semibold tracking-widest uppercase px-4 py-2 rounded-lg transition-all duration-300 flex items-center gap-1.5 group ${isActive('/products') ? 'text-brand-blue' : (isScrolled ? 'text-brand-navy hover:text-brand-blue' : 'text-white hover:text-brand-blue')
+              className={`relative text-sm font-semibold tracking-widest uppercase px-4 py-2 rounded-lg transition-all duration-300 flex items-center gap-1.5 group ${isActive('/products') ? 'text-brand-blue' : (isScrolled ? 'text-brand-navy' : 'text-white')
                 }`}
             >
               Products
@@ -119,7 +119,7 @@ const Navbar = () => {
                 className={`transition-transform duration-300 ${activeDropdown === 'products' ? 'rotate-180' : ''}`}
               />
               <span
-                className={`absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-brand-blue rounded-full transition-all duration-300 ${isActive('/products') || activeDropdown === 'products' ? 'w-12' : 'w-0 group-hover:w-12'
+                className={`absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-brand-blue rounded-full transition-all duration-300 ${isActive('/products') || activeDropdown === 'products' ? 'w-12' : 'w-12 group-hover:w-12'
                   }`}
               />
             </div>
@@ -167,7 +167,7 @@ const Navbar = () => {
             onMouseLeave={handleMouseLeave}
           >
             <div
-              className={`relative text-sm font-semibold tracking-widest uppercase px-4 py-2 rounded-lg transition-all duration-300 flex items-center gap-1.5 group ${isActive('/services') ? 'text-brand-blue' : (isScrolled ? 'text-brand-navy hover:text-brand-blue' : 'text-white hover:text-brand-blue')
+              className={`relative text-sm font-semibold tracking-widest uppercase px-4 py-2 rounded-lg transition-all duration-300 flex items-center gap-1.5 group ${isActive('/services') ? 'text-brand-blue' : (isScrolled ? 'text-brand-navy' : 'text-white')
                 }`}
             >
               Services
@@ -176,7 +176,7 @@ const Navbar = () => {
                 className={`transition-transform duration-300 ${activeDropdown === 'services' ? 'rotate-180' : ''}`}
               />
               <span
-                className={`absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-brand-blue rounded-full transition-all duration-300 ${isActive('/services') || activeDropdown === 'services' ? 'w-12' : 'w-0 group-hover:w-12'
+                className={`absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-brand-blue rounded-full transition-all duration-300 ${isActive('/services') || activeDropdown === 'services' ? 'w-12' : 'w-12 group-hover:w-12'
                   }`}
               />
             </div>
@@ -225,12 +225,12 @@ const Navbar = () => {
           >
             <Link
               to="/contact"
-              className={`relative text-sm font-semibold tracking-widest uppercase px-4 py-2 rounded-lg transition-all duration-300 group ${isActive('/contact') ? 'text-brand-blue' : (isScrolled ? 'text-brand-navy hover:text-brand-blue' : 'text-white hover:text-brand-blue')
+              className={`relative text-sm font-semibold tracking-widest uppercase px-4 py-2 rounded-lg transition-all duration-300 group ${isActive('/contact') ? 'text-brand-blue' : (isScrolled ? 'text-brand-navy' : 'text-white')
                 }`}
             >
               Contact
               <span
-                className={`absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-brand-blue rounded-full transition-all duration-300 ${isActive('/contact') ? 'w-12' : 'w-0 group-hover:w-12'
+                className={`absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-brand-blue rounded-full transition-all duration-300 ${isActive('/contact') ? 'w-12' : 'w-12 group-hover:w-12'
                   }`}
               />
             </Link>

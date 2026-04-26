@@ -11,7 +11,6 @@ const Home = () => {
       <StatsSection />
       <ExcellenceSection />
       <OurClients />
-
     </>
   );
 };

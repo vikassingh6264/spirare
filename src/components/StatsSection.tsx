@@ -25,8 +25,8 @@ const STATS = [
 
 const StatsSection = () => {
   return (
-    <section className="relative py-16 bg-white overflow-hidden">
-      <div className="container mx-auto px-6">
+    <section className="relative py-10 bg-white overflow-hidden">
+      <div className="container mx-auto p-6 bg-[#B8733315]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {STATS.map((stat, index) => (
             <motion.div
