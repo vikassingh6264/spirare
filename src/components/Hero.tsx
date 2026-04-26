@@ -4,11 +4,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 const SLIDES = [
   {
     src: '/hero/product_1.png',
-    title: 'Designed for efficiency. Built for the future.',
+    title: 'Designed for efficiency.',
   },
   {
     src: '/hero/product_2_v3.png',
-    title: 'Built for precision. Proven for safety. Trusted everywhere',
+    title: 'Built for precision',
   },
   {
     src: '/hero/product_3.png',
@@ -83,7 +83,7 @@ const Hero = () => {
           </motion.div>
         </AnimatePresence>
       </div>
-      <div className="absolute bottom-28 left-0 z-20 w-[90%] max-w-2xl rounded-r-xl h-[240px] bg-[#F5F5F5]/40 backdrop-blur-sm p-8 md:p-12 shadow-2xl flex flex-col justify-center">
+      <div className="absolute bottom-28 left-0 z-20 w-fit max-w-[95%] rounded-r-xl h-auto min-h-[140px] bg-[#F5F5F5]/40 backdrop-blur-sm p-8 md:px-12 md:py-8 shadow-2xl flex flex-col justify-center">
         <AnimatePresence mode="wait">
           <motion.div
             key={page}
@@ -93,7 +93,7 @@ const Hero = () => {
             variants={textVariants}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            <h1 className="text-3xl md:text-4xl font-semibold tracking-wider text-brand-navy leading-[1.1]">
+            <h1 className="text-3xl md:text-4xl font-semibold tracking-wider text-brand-navy leading-[1.1] md:whitespace-nowrap">
               {SLIDES[currentSlide].title.split('. ').map((part, i) => (
                 <span key={i} className="block text-brand-blue uppercase">
                   {part}
