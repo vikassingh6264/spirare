@@ -1,11 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Menu, X, ChevronDown, ArrowRight,
+  Menu, X, ChevronDown, ArrowRight, Search,
   Zap, Wind, Droplets, Fan, Gauge, Box, Thermometer, GitFork, ShieldAlert,
   Wrench, Package, ClipboardCheck
 } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import Logo from "../assets/logo.png"
 
 const productDropdown = [
   { name: 'Hydrogen Gas System', icon: <Zap size={18} /> },
@@ -30,6 +31,7 @@ type DropdownKey = 'products' | 'services' | null;
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(true);
   const [activeDropdown, setActiveDropdown] = useState<DropdownKey>(null);
   const [mobileExpanded, setMobileExpanded] = useState<DropdownKey>(null);
   const dropdownTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -70,21 +72,15 @@ const Navbar = () => {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-2.5 group cursor-pointer"
           >
-            <div
-              className={`w-10 h-10 rounded-lg flex items-center justify-center font-bold text-xl shadow-lg transition-all duration-300 group-hover:scale-110 ${isScrolled ? 'bg-brand-blue text-white' : 'bg-brand-blue/10 text-brand-blue border border-brand-blue/20'
-                }`}
-            >
-              S
-            </div>
-            <span className={`text-2xl font-bold tracking-tight transition-all duration-300 group-hover:opacity-90 ${isScrolled ? 'text-brand-navy' : 'text-brand-navy'}`}>
+            <img src={Logo} alt="Logo" className="w-10 h-10 rounded-lg" />
+            <span className={`text-2xl font-bold tracking-tight transition-all duration-300 group-hover:opacity-90 ${isScrolled ? 'text-brand-navy' : 'text-white'}`}>
               Spirare Energy
             </span>
           </motion.div>
         </Link>
         <div className="hidden md:flex items-center gap-0.5">
           {[
-            { name: 'Home', href: '/' },
-            { name: 'About', href: '/about' },
+            { name: 'About Us', href: '/about-us' },
           ].map((link, i) => (
             <motion.div
               key={link.name}
@@ -94,7 +90,7 @@ const Navbar = () => {
             >
               <Link
                 to={link.href}
-                className={`relative text-sm font-semibold tracking-widest uppercase px-4 py-2 rounded-lg transition-all duration-300 group ${isActive(link.href) ? 'text-brand-blue' : 'text-brand-navy hover:text-brand-blue'
+                className={`relative text-sm font-semibold tracking-widest uppercase px-4 py-2 rounded-lg transition-all duration-300 group ${isActive(link.href) ? 'text-brand-blue' : (isScrolled ? 'text-brand-navy hover:text-brand-blue' : 'text-white hover:text-brand-blue')
                   }`}
               >
                 {link.name}
@@ -114,7 +110,7 @@ const Navbar = () => {
             onMouseLeave={handleMouseLeave}
           >
             <div
-              className={`relative text-sm font-semibold tracking-widest uppercase px-4 py-2 rounded-lg transition-all duration-300 flex items-center gap-1.5 group ${isActive('/products') ? 'text-brand-blue' : 'text-brand-navy hover:text-brand-blue'
+              className={`relative text-sm font-semibold tracking-widest uppercase px-4 py-2 rounded-lg transition-all duration-300 flex items-center gap-1.5 group ${isActive('/products') ? 'text-brand-blue' : (isScrolled ? 'text-brand-navy hover:text-brand-blue' : 'text-white hover:text-brand-blue')
                 }`}
             >
               Products
@@ -171,7 +167,7 @@ const Navbar = () => {
             onMouseLeave={handleMouseLeave}
           >
             <div
-              className={`relative text-sm font-semibold tracking-widest uppercase px-4 py-2 rounded-lg transition-all duration-300 flex items-center gap-1.5 group ${isActive('/services') ? 'text-brand-blue' : 'text-brand-navy hover:text-brand-blue'
+              className={`relative text-sm font-semibold tracking-widest uppercase px-4 py-2 rounded-lg transition-all duration-300 flex items-center gap-1.5 group ${isActive('/services') ? 'text-brand-blue' : (isScrolled ? 'text-brand-navy hover:text-brand-blue' : 'text-white hover:text-brand-blue')
                 }`}
             >
               Services
@@ -229,7 +225,7 @@ const Navbar = () => {
           >
             <Link
               to="/contact"
-              className={`relative text-sm font-semibold tracking-widest uppercase px-4 py-2 rounded-lg transition-all duration-300 group ${isActive('/contact') ? 'text-brand-blue' : 'text-brand-navy hover:text-brand-blue'
+              className={`relative text-sm font-semibold tracking-widest uppercase px-4 py-2 rounded-lg transition-all duration-300 group ${isActive('/contact') ? 'text-brand-blue' : (isScrolled ? 'text-brand-navy hover:text-brand-blue' : 'text-white hover:text-brand-blue')
                 }`}
             >
               Contact
@@ -254,10 +250,60 @@ const Navbar = () => {
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
             </Link>
           </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="ml-4 flex items-center"
+          >
+            <div className="relative flex items-center">
+              <AnimatePresence>
+                {isSearchOpen ? (
+                  <motion.div
+                    initial={{ width: 0, opacity: 0 }}
+                    animate={{ width: 240, opacity: 1 }}
+                    exit={{ width: 0, opacity: 0 }}
+                    className="relative flex items-center"
+                  >
+                    <Search
+                      size={18}
+                      className={`absolute left-3 z-10 ${isScrolled ? 'text-slate-400' : 'text-white/60'}`}
+                    />
+                    <input
+                      type="text"
+                      placeholder="Search..."
+                      autoFocus
+                      className={`h-10 w-full pl-10 pr-10 rounded-full text-sm focus:outline-none transition-all duration-300 border ${isScrolled
+                        ? 'bg-slate-100 border-transparent text-brand-navy focus:bg-white focus:border-brand-blue/30'
+                        : 'bg-white/10 border-white/20 text-white placeholder:text-white/60'
+                        }`}
+                    />
+                    <button
+                      onClick={() => setIsSearchOpen(false)}
+                      className={`absolute right-3 p-1 rounded-full hover:bg-black/5 transition-colors ${isScrolled ? 'text-slate-400' : 'text-white/60'
+                        }`}
+                    >
+                      <X size={16} />
+                    </button>
+                  </motion.div>
+                ) : (
+                  <motion.button
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    onClick={() => setIsSearchOpen(true)}
+                    className={`w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 hover:bg-white/10 ${isScrolled ? 'text-brand-navy' : 'text-white'
+                      }`}
+                  >
+                    <Search size={20} />
+                  </motion.button>
+                )}
+              </AnimatePresence>
+            </div>
+          </motion.div>
         </div>
 
         <button
-          className="md:hidden text-brand-navy hover:scale-110 transition-transform duration-200 p-1"
+          className={`md:hidden hover:scale-110 transition-transform duration-200 p-1 ${isScrolled ? 'text-brand-navy' : 'text-white'}`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >

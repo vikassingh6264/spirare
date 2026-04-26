@@ -1,14 +1,16 @@
 import ContactSection from '../components/ContactSection';
 import Hero from '../components/Hero';
+import StatsSection from '../components/StatsSection';
+import ExcellenceSection from '../components/ExcellenceSection';
 import IndustriesServed from '../components/IndustriesServed';
 import OurClients from '../components/OurClients';
-import OurProducts from '../components/OurProducts';
 
 const Home = () => {
   return (
     <>
       <Hero />
-      <OurProducts />
+      <StatsSection />
+      <ExcellenceSection />
       <IndustriesServed />
       <OurClients />
       <ContactSection />
